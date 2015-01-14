@@ -34,11 +34,11 @@ sort(&myBiggerArray) { $0 < $1 }
 
 myBiggerArray
 
-var resultsArray = [Int]()
-
 func findTargetNumbers (myArray: [Int], targetNumber: Int) -> [Int] {
     
-    for (index, value) in enumerate(myBiggerArray) {
+    var resultsArray = [Int]()
+    
+    for (index, value) in enumerate(myArray) {
         if value == targetNumber {
             resultsArray.append(index)
         }
@@ -49,36 +49,6 @@ func findTargetNumbers (myArray: [Int], targetNumber: Int) -> [Int] {
     return resultsArray
 }
 
+findTargetNumbers(myBiggerArray, 1)
+findTargetNumbers(myBiggerArray, 5)
 findTargetNumbers(myBiggerArray, 50)
-
-resultsArray
-
-// MARK PART 2.2
-
-struct Range {
-    var indexOfFirstOccurance : Int = -1
-    var numberOfOccurances: Int = 0
-}
-
-var rangeOfResults = Range(indexOfFirstOccurance: -1, numberOfOccurances: 0)
-
-
-func findRangeOfTargetNumbers (myArray: [Int], targetNumber: Int) -> Range {
-    
-    for (index, value) in enumerate(myBiggerArray) {
-        if value == targetNumber {
-            if rangeOfResults.indexOfFirstOccurance == -1 {
-                rangeOfResults.indexOfFirstOccurance = index
-            }
-            resultsArray.append(index)
-        }
-    }
-    rangeOfResults.numberOfOccurances = resultsArray.count - 1
-    return rangeOfResults
-}
-
-myBiggerArray
-findRangeOfTargetNumbers(myBiggerArray, 5)
-rangeOfResults
-
-
